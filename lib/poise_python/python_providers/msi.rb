@@ -47,7 +47,7 @@ module PoisePython
       def install_python
         version = package_version
         windows_package 'python' do
-          source "https://www.python.org/ftp/python/#{version}/python-#{version}#{node['kernel']['machine'] == 'x86_64' ? (version.start_with?('3.5') ? '-' : '.') + 'amd64' : ''}.msi"
+          source "https://www.python.org/ftp/python/#{version}/python-#{version}#{node['kernel']['machine'] == 'x86_64' ? (version.start_with?('3.5') ? '-' : '.') + 'amd64' : ''}.{version.start_with?('3.5') ? 'exe' : 'msi'}"
         end
       end
 
